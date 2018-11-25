@@ -1,0 +1,36 @@
+﻿<Window x:Name="ConectionWindow" x:Class="gameeee.Connect"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:gameeee"
+        mc:Ignorable="d"
+        Title="Connect" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FF00F5F5" Offset="0"/>
+                <GradientStop Color="#FF4C79AE" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,10,0,0" FontFamily="Tahoma" FontSize="24" TextAlignment="Center" Foreground="#FF071F87"><Run Text="Ip "/><Run Text="адрес сервера "/><Run Text="и порт"/></TextBlock>
+        <TextBox HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Margin="10,44,0,0" Background="#FFFDFDFD" Text="192.168.1.1" FontFamily="Tahoma" FontSize="20" TextAlignment="Center" Cursor="None">
+            <TextBox.Effect>
+                <DropShadowEffect Color="#FF36B5D6"/>
+            </TextBox.Effect>
+        </TextBox>
+        <TextBox x:Name="Start" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="65555" VerticalAlignment="Top" Width="65" Margin="160,44,0,0" FontFamily="Tahoma" FontSize="20" TextAlignment="Center">
+            <TextBox.Effect>
+                <DropShadowEffect Color="#FF36B5D6"/>
+            </TextBox.Effect>
+        </TextBox>
+        <Button x:Name="ConnectButton" Content="Подключение" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="10,72,0,0" FontFamily="Tahoma" FontSize="14" Foreground="Black" Click="Connect_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FFD8E6FF" Offset="0"/>
+                    <GradientStop Color="#FF63D1E2" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+    </Grid>
+</Window>

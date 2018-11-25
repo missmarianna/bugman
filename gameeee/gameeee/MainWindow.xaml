@@ -5,6 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:gameeee"
         mc:Ignorable="d"
-        Title="Игра" Height="450" Width="800" WindowState="Maximized" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" Cursor="None" WindowStyle="None">
+        Title="Игра" Height="450" Width="800" WindowState="Maximized" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Cursor="None" WindowStyle="None">
     <Grid/>
 </Window>

@@ -1,4 +1,8 @@
 ﻿using System.Windows;
+using System.Net;
+using System.Net.Sockets;
+using System;
+using System.Text;
 
 namespace gameeee
 {
@@ -7,7 +11,11 @@ namespace gameeee
     /// </summary>
     public partial class Connect : Window
     {
+        Random rnd = new Random();
+        public byte[] data;
+        public string response = "";
         MainWindow game = new MainWindow();
+        TcpClient client = new TcpClient();
         public Connect()
         {
             InitializeComponent();
@@ -16,8 +24,28 @@ namespace gameeee
 
         private void Connect_Click(object sender, RoutedEventArgs e)
         {
-            Close();
-            game.Show();
+            int n = rnd.Next(1000, 9999);
+            data = BitConverter.GetBytes(n);
+            try
+            {
+                client.Connect(IpText.ToString(), Convert.ToInt32(PortText.ToString()));
+                NetworkStream stream = client.GetStream();
+                stream.Write(data, 0, data.Length);
+                do
+                {
+                    int bytes = stream.Read(data, 0, data.Length);
+                    response += Encoding.UTF8.GetString(data, 0, bytes);
+                } while (stream.DataAvailable);
+            }
+            catch (SocketException error)
+            {
+                MessageBox.Show(error.ToString(), "Ошибка!");
+            }
+            if (response == ("Connected " + n.ToString()))
+            {
+                Close();
+                game.Show();
+            }
         }
     }
 }

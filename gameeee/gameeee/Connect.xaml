@@ -14,12 +14,12 @@
             </LinearGradientBrush>
         </Grid.Background>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,10,0,0" FontFamily="Tahoma" FontSize="24" TextAlignment="Center" Foreground="#FF071F87"><Run Text="Ip "/><Run Text="адрес сервера "/><Run Text="и порт"/></TextBlock>
-        <TextBox x:Name="IpText" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Margin="10,44,0,0" Background="#FFFDFDFD" Text="192.168.1.1" FontFamily="Tahoma" FontSize="20" TextAlignment="Center" Cursor="None">
+        <TextBox x:Name="IpText" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="145" Margin="10,44,0,0" Background="#FFFDFDFD" Text="127.0.0.1" FontFamily="Tahoma" FontSize="20" TextAlignment="Center" Cursor="None">
             <TextBox.Effect>
                 <DropShadowEffect Color="#FF36B5D6"/>
             </TextBox.Effect>
         </TextBox>
-        <TextBox x:Name="PortText" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="65555" VerticalAlignment="Top" Width="65" Margin="160,44,0,0" FontFamily="Tahoma" FontSize="20" TextAlignment="Center">
+        <TextBox x:Name="PortText" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" Text="8888" VerticalAlignment="Top" Width="65" Margin="160,44,0,0" FontFamily="Tahoma" FontSize="20" TextAlignment="Center">
             <TextBox.Effect>
                 <DropShadowEffect Color="#FF36B5D6"/>
             </TextBox.Effect>

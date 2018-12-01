@@ -11,14 +11,14 @@ namespace server
     {
         static void Main(string[] args)
         {
-            byte[] data = new byte[256];
-            string mess = "";
             TcpListener server = null;
-            int port = 8888;
-            string ip = "127.0.0.1";
-            IPAddress localAddr = IPAddress.Parse(ip);
             try
             {
+                byte[] data = new byte[256];
+                string mess = "";
+                int port = 8888;
+                string ip = "127.0.0.1";
+                IPAddress localAddr = IPAddress.Parse(ip);
                 server = new TcpListener(localAddr, port);
                 server.Start();
                 while (true)

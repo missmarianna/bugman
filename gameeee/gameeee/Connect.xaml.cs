@@ -19,38 +19,13 @@ namespace gameeee
         public Connect()
         {
             InitializeComponent();
-            
         }
-
+        
         private void Connect_Click(object sender, RoutedEventArgs e)
         {
-            int n = rnd.Next(1000, 9999);  //identificator clienta
-            data = BitConverter.GetBytes(n);
-            try
-            {
-                client.Connect(Convert.ToString(IpText.Text), Convert.ToInt32(PortText.Text));
-                NetworkStream stream = client.GetStream();
-                stream.Write(data, 0, data.Length);
-                do
-                {
-                    int bytes = stream.Read(data, 0, data.Length);
-                    response += Encoding.UTF8.GetString(data, 0, bytes);
-                }
-                while (stream.DataAvailable);
-            }
-            catch (SocketException error)
-            {
-                MessageBox.Show(error.ToString(), "Ошибка!");
-            }
-            catch (Exception error)
-            {
-                MessageBox.Show(error.ToString(), "Ошибка!");
-            }
-            if (response == ("Connected " + n.ToString()))
-            {
-                Close();
-                game.Show();
-            }
+            int n = rnd.Next(1000, 9999);  //индентификатор клиента
+            data = BitConverter.GetBytes(n);//записываем его в буфер для последующей передачи.
+            App.StartG(IpText.Text, Convert.ToInt32(PortText.Text), data);
         }
     }
 }

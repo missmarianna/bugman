@@ -21,9 +21,8 @@ namespace server
                 IPAddress localAddr = IPAddress.Parse(ip);
                 server = new TcpListener(localAddr, port);
                 server.Start();
-                while (true)
-                {
-                    TcpClient client = server.AcceptTcpClient();
+               
+                    TcpClient client = server.AcceptTcpClient();//Здесь сервак принимает подключение, следовательно после этой строчки запускаем отдельный поток под следущее подключение
                     NetworkStream stream = client.GetStream();
                     do
                     {
@@ -36,7 +35,7 @@ namespace server
                     stream.Write(data, 0, data.Length);
                     stream.Close();
                     client.Close();
-                }
+            
             }
             catch (Exception error)
             {

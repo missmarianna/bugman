@@ -3,6 +3,7 @@ using System.Net;
 using System.Net.Sockets;
 using System;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace gameeee
 {
@@ -11,21 +12,21 @@ namespace gameeee
     /// </summary>
     public partial class Connect : Window
     {
-        Random rnd = new Random();
+        
         public byte[] data;
         public string response = "";
+        public int n;
         MainWindow game = new MainWindow();
         TcpClient client = new TcpClient();
         public Connect()
         {
             InitializeComponent();
+            
         }
         
-        private void Connect_Click(object sender, RoutedEventArgs e)
+        private async void Connect_ClickAsync(object sender, RoutedEventArgs e)
         {
-            int n = rnd.Next(1000, 9999);  //индентификатор клиента
-            data = BitConverter.GetBytes(n);//записываем его в буфер для последующей передачи.
-            App.StartG(IpText.Text, Convert.ToInt32(PortText.Text), data);
+            await App.StartG();
         }
     }
 }

@@ -9,7 +9,17 @@ namespace server
 {
     class Program
     {
+        public static Task listener = new Task(Listen);
         static void Main(string[] args)
+        {
+            string command = "";
+            listener.Start();
+            while(!listener.IsCompleted || command == "exit")
+            {
+                command += Console.ReadLine();
+            }
+        }
+        static void Listen()
         {
             TcpListener server = null;
             try
@@ -22,20 +32,22 @@ namespace server
                 server = new TcpListener(localAddr, port);
                 server.Start();
                 TcpClient client = server.AcceptTcpClient();//Здесь сервак принимает подключение, следовательно после этой строчки запускаем отдельный поток под следущее подключение
-                NetworkStream stream = client.GetStream();
-                do
-                {
-                    int bytes = stream.Read(data, 0, data.Length);
-                    mess += Encoding.UTF8.GetString(data, 0, bytes);
+                listener.Start();
+                while (client.Connected) {
+                    NetworkStream stream = client.GetStream();
+                    do
+                    {
+                        int bytes = stream.Read(data, 0, data.Length);
+                        mess += Encoding.UTF8.GetString(data, 0, bytes);
+                    }
+                    while (stream.DataAvailable);
+                    string response = "Connected " + mess;
+                    Console.WriteLine(response);
+                    data = Encoding.UTF8.GetBytes(response);
+                    stream.Write(data, 0, data.Length);
+                    stream.Close();
                 }
-                while (stream.DataAvailable);
-                string response = "Connected " + mess;
-                Console.WriteLine(response);
-                data = Encoding.UTF8.GetBytes(response);
-                stream.Write(data, 0, data.Length);
-                stream.Close();
                 client.Close();
-            
             }
             catch (Exception error)
             {

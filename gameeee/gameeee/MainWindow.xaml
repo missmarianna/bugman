@@ -6,5 +6,13 @@
         xmlns:local="clr-namespace:gameeee"
         mc:Ignorable="d"
         Title="Игра" Height="450" Width="800" WindowState="Maximized" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" Cursor="None" WindowStyle="None">
-    <Grid/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Margin="-1,0,0,-0.5" Source="back.png" Stretch="Fill"/>
+        <Image Margin="535,0,-34,230.5" Source="logo.png" Stretch="Fill"/>
+         <Grid/>
 </Window>

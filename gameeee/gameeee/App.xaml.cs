@@ -23,7 +23,7 @@ namespace gameeee
             data = BitConverter.GetBytes(rnd.Next(1000, 9999));  //индентификатор клиента);//записываем его в буфер для последующей передачи.
             try
             {
-               await client.ConnectAsync(Connect.IpText.Text, Convert.ToInt32(Connect.PortText.Text));//  меня задолбало это говно, поправьте как то)
+               await client.ConnectAsync(conwin.IpText.Text, Convert.ToInt32(conwin.PortText.Text));
                NetworkStream stream = client.GetStream();
                await stream.WriteAsync(data, 0, data.Length);
                do

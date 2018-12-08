@@ -10,7 +10,7 @@
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FF00F5F5" Offset="0"/>
-                <GradientStop Color="#FF4C79AE" Offset="1"/>
+                <GradientStop Color="#FF8DF186" Offset="0.519"/>
             </LinearGradientBrush>
         </Grid.Background>
         <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" VerticalAlignment="Top" Margin="10,10,0,0" FontFamily="Tahoma" FontSize="24" TextAlignment="Center" Foreground="#FF071F87"><Run Text="Ip "/><Run Text="адрес сервера "/><Run Text="и порт"/></TextBlock>
@@ -24,7 +24,7 @@
                 <DropShadowEffect Color="#FF36B5D6"/>
             </TextBox.Effect>
         </TextBox>
-        <Button x:Name="ConnectButton" Content="Подключение" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="10,72,0,0" FontFamily="Tahoma" FontSize="14" Foreground="Black" Click="Connect_Click">
+        <Button x:Name="ConnectButton" Content="Подключение" HorizontalAlignment="Left" VerticalAlignment="Top" Width="215" Margin="10,72,0,0" FontFamily="Tahoma" FontSize="14" Foreground="Black" Click="Connect_ClickAsync">
             <Button.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                     <GradientStop Color="#FFD8E6FF" Offset="0"/>

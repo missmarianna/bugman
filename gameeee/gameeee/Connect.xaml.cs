@@ -26,7 +26,7 @@ namespace gameeee
         
         private async void Connect_ClickAsync(object sender, RoutedEventArgs e)
         {
-            await App.StartG();
+            await ((App)Application.Current).StartG();
         }
     }
 }
